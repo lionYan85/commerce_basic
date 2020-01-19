@@ -6,15 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="AreaStat" />
         <module name="commons" />
         <module name="mock" />
+        <module name="pageStat" />
         <module name="Session" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="AreaStat" target="1.8" />
       <module name="commerce" target="1.8" />
       <module name="commons" target="1.8" />
       <module name="mock" target="1.8" />
+      <module name="pageStat" target="1.8" />
       <module name="Session" target="1.8" />
     </bytecodeTargetLevel>
   </component>
