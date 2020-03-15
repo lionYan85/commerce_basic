@@ -53,7 +53,9 @@ object AreaTop3Stat {
 
   def getAreaProductClickCount(sparkSession: SparkSession): Unit = {
 
-    val sql = "select area,pid,count(*) click_count from tmp_area_basic_info group by area,pid"
+    val sql = "select area,pid,count(*) click_count," +
+     "group_concat_distinct(concat_long_string(city_id,city_name,';'))city_infos" +
+    " from tmp_area_basic_info group by area,pid"
 
     sparkSession.sql(sql).createOrReplaceTempView("tmp_area_click_count")
   }
@@ -81,12 +83,14 @@ object AreaTop3Stat {
       v1 + split + v2
     })
 
-
+    sparkSession.udf.register("group_concat_distinct", new GrouoConcatDistinct)
 
 
     getAreaProductClickCount(sparkSession)
 
-        sparkSession.sql("select * from tmp_area_basic_info").show()
+
+
+    sparkSession.sql("select * from tmp_area_basic_info").show()
 
   }
 
