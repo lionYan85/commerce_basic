@@ -6,12 +6,12 @@ import commons.utils.ParamUtils
 import net.sf.json.JSONObject
 import org.apache.spark.SparkConf
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SaveMode, SparkSession}
 
 
 object AreaTop3Stat {
 
-  def cgetCityAndProductInfo(sparkSession: SparkSession, taskParmas: JSONObject) = {
+  def getCityAndProductInfo(sparkSession: SparkSession, taskParmas: JSONObject) = {
 
     val startDate = ParamUtils.getParam(taskParmas, Constants.PARAM_START_DATE)
     val endDate = ParamUtils.getParam(taskParmas, Constants.PARAM_END_DATE)
@@ -54,13 +54,68 @@ object AreaTop3Stat {
   def getAreaProductClickCount(sparkSession: SparkSession): Unit = {
 
     val sql = "select area,pid,count(*) click_count," +
-     "group_concat_distinct(concat_long_string(city_id,city_name,';'))city_infos" +
-    " from tmp_area_basic_info group by area,pid"
+      "group_concat_distinct(concat_long_string(city_id,city_name,';'))city_infos" +
+      " from tmp_area_basic_info group by area,pid"
 
     sparkSession.sql(sql).createOrReplaceTempView("tmp_area_click_count")
+
+  }
+
+
+  def getAreaProductClickCountInfo(sparkSession: SparkSession): Unit = {
+
+    val sql = "select tacc.area, tacc.city_infos,tacc.pid,pi.product_name," + "if(get_json_field(pi.extend_info," +
+      "'product_status')='0','self','Third Party')product_status" +
+      "tacc.click_count" +
+      "from tmp_area_click_count tacc join product_info pi on tacc.pid = pi" +
+      ".product_id"
+
+    sparkSession.sql(sql).createOrReplaceTempView("tmp_area_count_info")
   }
 
   def getCityAndProductInfo(sparkSession: SparkSession, taskParmas: JSONObject) = ???
+
+  def getTop3Product(sparkSession: SparkSession, taskUUID: String) = {
+    val sqlData = "select area,city_infos,pid,product_name,product_status,click_count," + "row_number() over" +
+      "(PARTITION BY " +
+      "area order by click_count desc) rank from tmp_area_count_product_info"
+
+    //    sparkSession.sql(sql).createOrReplaceTempView("temp_test")
+
+    val sql = "select area," +
+      "case" +
+      "when area = '华北' or area = '华东' then 'A_Level'" +
+      "when area = '华中' or area = '华南' then 'B_Level'" +
+      "when area = '西南' or area = '西北' then 'C_Level'" +
+      "else 'D_Level'" +
+      "end Area_Level" +
+      "city_infos,pid,product_name,product_stauts,click_count from (" +
+      sqlData +
+      ") t where rank <=3"
+
+    val top3ProductRDD = sparkSession.sql(sql).rdd.map {
+      case row =>
+        AreaTop3Product(taskUUID,
+          row.getAs[String]("area"),
+          row.getAs[String]("area_Level"),
+          row.getAs[Long]("pid"),
+          row.getAs[String]("city_infos"),
+          row.getAs[Long]("click_count"),
+          row.getAs[String]("product_name"),
+          row.getAs[String]("product_status"))
+    }
+
+    import sparkSession.implicits._
+    top3ProductRDD.toDF().write
+      .format("jdbc")
+      .option("url", ConfigurationManager.config.getString(Constants.JDBC_URL))
+      .option("dbtable", "area_top3_product_info")
+      .option("user", ConfigurationManager.config.getString(Constants.JDBC_USER))
+      .option("password", ConfigurationManager.config.getString(Constants.JDBC_PASSWORD))
+      .mode(SaveMode.Append)
+      .save()
+  }
+
 
   def main(args: Array[String]): Unit = {
 
@@ -88,7 +143,15 @@ object AreaTop3Stat {
 
     getAreaProductClickCount(sparkSession)
 
+    sparkSession.udf.register("get_json_field", (json: String, field: String) => {
+      val jSONObject = JSONObject.fromObject(jSONObject)
+      jSONObject.getString(field)
+    })
 
+
+    getAreaProductClickCountInfo(sparkSession)
+
+    getTop3Product(sparkSession, taskUUID)
 
     sparkSession.sql("select * from tmp_area_basic_info").show()
 
