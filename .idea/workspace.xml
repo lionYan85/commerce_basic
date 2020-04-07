@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="bd575884-c23f-44e6-bff5-8975bea2f62f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_spark_spark_streaming_2_12_2_4_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/mock/target/" />
     <ignored path="$PROJECT_DIR$/commons/target/" />
@@ -10,6 +16,7 @@
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/pageStat/target/" />
     <ignored path="$PROJECT_DIR$/AreaStat/target/" />
+    <ignored path="$PROJECT_DIR$/adverstat/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,50 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SessionStates.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Session/src/main/scala/SessionStates.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3225">
-              <caret line="226" selection-start-line="226" selection-end-line="226" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Session/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="69" column="12" selection-start-line="13" selection-start-column="4" selection-end-line="69" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pageStat/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="68" column="12" selection-start-line="12" selection-start-column="4" selection-end-line="68" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PageConvertStat.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pageStat/src/main/scala/PageConvertStat.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="77" column="97" selection-start-line="71" selection-start-column="4" selection-end-line="77" selection-end-column="97" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AreaStat/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="57" column="31" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+            <state relative-caret-position="-257">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -70,8 +38,8 @@
       <file leaf-file-name="AreaTop3Stat.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AreaStat/src/main/scala/AreaTop3Stat.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="95" column="56" lean-forward="true" selection-start-line="95" selection-start-column="56" selection-end-line="95" selection-end-column="56" />
+            <state relative-caret-position="287">
+              <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -79,29 +47,76 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MockRealTimeData.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mock/src/main/scala/MockRealTimeData.scala">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adverstat/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="46" column="31" lean-forward="true" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+            <state relative-caret-position="225">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Session.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Session/Session.iml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="ConfigurationManager.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commons/src/main/scala/commons/conf/ConfigurationManager.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commons/src/main/scala/commons/constant/Constants.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="20" column="19" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdverStat.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/adverstat/src/main/scala/AdverStat.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="343">
+              <caret line="53" column="65" lean-forward="true" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
+              <folding>
+                <element signature="e#1#34#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="DataModel.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AreaStat/src/main/scala/DataModel.scala">
+        <entry file="file://$PROJECT_DIR$/adverstat/src/main/scala/DataModel.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+            <state relative-caret-position="345">
+              <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commerce.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commons/src/main/resources/commerce.properties">
+      <file leaf-file-name="JdbcHelper.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adverstat/src/main/scala/JdbcHelper.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+            <state relative-caret-position="-112">
+              <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+              <folding>
+                <element signature="e#65#90#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,6 +137,7 @@
       <find>getAreaProductClickCount</find>
       <find>get_json</find>
       <find>dbtable</find>
+      <find>StreamingContext</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -134,12 +150,17 @@
         <option value="$PROJECT_DIR$/pageStat/pom.xml" />
         <option value="$PROJECT_DIR$/pageStat/src/main/scala/DataModel.scala" />
         <option value="$PROJECT_DIR$/pageStat/src/main/scala/PageConvertStat.scala" />
-        <option value="$PROJECT_DIR$/AreaStat/pom.xml" />
         <option value="$PROJECT_DIR$/AreaStat/src/main/scala/scriptFile.scala" />
         <option value="$PROJECT_DIR$/AreaStat/src/main/scala/GrouoConcatDistinct.scala" />
         <option value="$PROJECT_DIR$/AreaStat/src/main/scala/AreaTop3Stat.scala" />
         <option value="$PROJECT_DIR$/mock/src/main/scala/MockRealTimeData.scala" />
         <option value="$PROJECT_DIR$/commons/src/main/resources/commerce.properties" />
+        <option value="$PROJECT_DIR$/AreaStat/pom.xml" />
+        <option value="$PROJECT_DIR$/adverstat/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/commons/src/main/scala/commons/constant/Constants.scala" />
+        <option value="$PROJECT_DIR$/adverstat/src/main/scala/DataModel.scala" />
+        <option value="$PROJECT_DIR$/adverstat/src/main/scala/AdverStat.scala" />
       </list>
     </option>
   </component>
@@ -177,7 +198,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,42 +210,33 @@
             <path>
               <item name="commerce" type="b2602c69:ProjectViewProjectNode" />
               <item name="commerce_basic" type="462c0819:PsiDirectoryNode" />
-              <item name="AreaStat" type="462c0819:PsiDirectoryNode" />
+              <item name="adverstat" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="commerce" type="b2602c69:ProjectViewProjectNode" />
               <item name="commerce_basic" type="462c0819:PsiDirectoryNode" />
-              <item name="AreaStat" type="462c0819:PsiDirectoryNode" />
+              <item name="adverstat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="commerce" type="b2602c69:ProjectViewProjectNode" />
               <item name="commerce_basic" type="462c0819:PsiDirectoryNode" />
-              <item name="AreaStat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="commerce" type="b2602c69:ProjectViewProjectNode" />
-              <item name="commerce_basic" type="462c0819:PsiDirectoryNode" />
-              <item name="AreaStat" type="462c0819:PsiDirectoryNode" />
+              <item name="adverstat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="commerce" type="b2602c69:ProjectViewProjectNode" />
               <item name="commerce_basic" type="462c0819:PsiDirectoryNode" />
-              <item name="AreaStat" type="462c0819:PsiDirectoryNode" />
+              <item name="adverstat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="AreaTop3Stat$" type="ce8f04f3:TypeDefinitionNode" />
             </path>
             <path>
               <item name="commerce" type="b2602c69:ProjectViewProjectNode" />
               <item name="commerce_basic" type="462c0819:PsiDirectoryNode" />
-              <item name="AreaStat" type="462c0819:PsiDirectoryNode" />
+              <item name="adverstat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
@@ -232,11 +245,37 @@
             <path>
               <item name="commerce" type="b2602c69:ProjectViewProjectNode" />
               <item name="commerce_basic" type="462c0819:PsiDirectoryNode" />
+              <item name="adverstat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="JdbcHelper.scala" type="6117b065:FileNode" />
+            </path>
+            <path>
+              <item name="commerce" type="b2602c69:ProjectViewProjectNode" />
+              <item name="commerce_basic" type="462c0819:PsiDirectoryNode" />
+              <item name="AreaStat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="commerce" type="b2602c69:ProjectViewProjectNode" />
+              <item name="commerce_basic" type="462c0819:PsiDirectoryNode" />
+              <item name="AreaStat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="commerce" type="b2602c69:ProjectViewProjectNode" />
+              <item name="commerce_basic" type="462c0819:PsiDirectoryNode" />
+              <item name="AreaStat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="commerce" type="b2602c69:ProjectViewProjectNode" />
+              <item name="commerce_basic" type="462c0819:PsiDirectoryNode" />
               <item name="AreaStat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="GrouoConcatDistinct" type="ce8f04f3:TypeDefinitionNode" />
             </path>
             <path>
               <item name="commerce" type="b2602c69:ProjectViewProjectNode" />
@@ -381,8 +420,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -398,6 +436,7 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/adverstat/src/main/scala" />
       <recent name="$PROJECT_DIR$/pageStat/src/main/scala" />
     </key>
   </component>
@@ -499,12 +538,13 @@
       <workItem from="1583342553578" duration="665000" />
       <workItem from="1583680638106" duration="598000" />
       <workItem from="1583681812458" duration="5176000" />
-      <workItem from="1584863559582" duration="7762000" />
+      <workItem from="1584863559582" duration="8760000" />
+      <workItem from="1586177047912" duration="6567000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85246000" />
+    <option name="totallyTimeSpent" value="92811000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="23" width="1387" height="877" extended-state="0" />
@@ -524,7 +564,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3448718" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27509293" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2788104" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -561,84 +601,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AreaStat/src/main/scala/AreaTop3Stat.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="92" column="64" lean-forward="true" selection-start-line="92" selection-start-column="64" selection-end-line="92" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Session/src/main/scala/SessionStates.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3225">
-          <caret line="226" selection-start-line="226" selection-end-line="226" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mock/src/main/scala/MockDataGenerate.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="73" column="75" selection-start-line="73" selection-start-column="75" selection-end-line="73" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Session/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="12" selection-start-line="13" selection-start-column="4" selection-end-line="69" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pageStat/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="68" column="12" selection-start-line="12" selection-start-column="4" selection-end-line="68" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pageStat/src/main/scala/PageConvertStat.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="77" column="97" selection-start-line="71" selection-start-column="4" selection-end-line="77" selection-end-column="97" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AreaStat/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="31" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AreaStat/src/main/scala/GrouoConcatDistinct.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commons/src/main/resources/commerce.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AreaStat/src/main/scala/AreaTop3Stat.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="62" column="41" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Session/src/main/scala/SessionStates.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3225">
@@ -857,13 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Session/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="12" selection-start-line="13" selection-start-column="4" selection-end-line="69" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Session/src/main/scala/SessionStates.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3225">
@@ -875,13 +830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
           <caret line="68" column="12" selection-start-line="12" selection-start-column="4" selection-end-line="68" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AreaStat/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="31" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -903,23 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AreaStat/src/main/scala/AreaTop3Stat.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="95" column="56" lean-forward="true" selection-start-line="95" selection-start-column="56" selection-end-line="95" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commons/src/main/resources/commerce.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AreaStat/src/main/scala/GrouoConcatDistinct.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -933,14 +864,117 @@
     <entry file="file://$PROJECT_DIR$/AreaStat/src/main/scala/DataModel.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commons/src/main/resources/commerce.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="66" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mock/src/main/scala/MockRealTimeData.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="46" column="31" lean-forward="true" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+        <state relative-caret-position="-136">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-streaming_2.12/2.4.3/spark-streaming_2.12-2.4.3.jar!/org/apache/spark/streaming/StreamingContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="62" lean-forward="true" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commons/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AreaStat/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Session/Session.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Session/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-257">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commons/src/main/scala/commons/constant/Constants.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commons/src/main/scala/commons/conf/ConfigurationManager.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adverstat/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AreaStat/src/main/scala/AreaTop3Stat.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adverstat/src/main/scala/DataModel.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adverstat/src/main/scala/JdbcHelper.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-112">
+          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <folding>
+            <element signature="e#65#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adverstat/src/main/scala/AdverStat.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="53" column="65" lean-forward="true" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
