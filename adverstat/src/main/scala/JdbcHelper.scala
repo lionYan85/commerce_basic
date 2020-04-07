@@ -4,7 +4,7 @@
 
 import java.sql.ResultSet
 
-import com.atguigu.commons.pool.{CreateMySqlPool, QueryCallback}
+import commons.pool.{CreateMySqlPool, QueryCallback}
 
 import scala.collection.mutable.ArrayBuffer
 
