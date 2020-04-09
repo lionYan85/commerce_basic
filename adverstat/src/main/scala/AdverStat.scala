@@ -4,11 +4,8 @@ import java.sql.Date
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.streaming._
-import commons.conf.ConfigurationManager
-import commons.constant.Constants
 import commons.utils.DateUtils
 import org.apache.kafka.clients.consumer.ConsumerRecord
-import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.streaming.dstream.{DStream, InputDStream}
 import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
@@ -96,16 +93,160 @@ object AdverStat {
 
   def provinceCityClickStat(adRealTimeFilterDStream: DStream[String]) = {
 
+    //DStream[RDD[key,1L]]
+    val key2ProvinceCityDStream = adRealTimeFilterDStream.map {
+      case log =>
+        val logSplit = log.split(" ")
+        val dateKey = logSplit(0).toLong
+        val province = logSplit(1)
+        val city = logSplit(2)
+        val adid = logSplit(4)
+
+        val key = dateKey + "_" + province + "_" + city + "_" + adid
+        (key, 1L)
+    }
+
+    //
+    val key2StateDStream = key2ProvinceCityDStream.updateStateByKey[Long] {
+      (values: Seq[Long], state: Option[Long]) =>
+        var newValue = 0L
+        if (state.isDefined)
+          newValue = state.get
+        for (value <- values) {
+          newValue += value
+        }
+
+        Some(newValue)
+    }
+
+    //循环结果，存入数据库
+    key2StateDStream.foreachRDD {
+      rdd =>
+        rdd.foreachPartition {
+          items =>
+            val adStateArray = new ArrayBuffer[AdStat]()
+            for ((key, count) <- items) {
+              val keySplit = key.split("_")
+              val date = keySplit(0)
+              val province = keySplit(1)
+              val city = keySplit(2)
+              val adid = keySplit(3).toLong
+
+              adStateArray += AdStat(date, province, city, adid, count)
+            }
+            AdStatDAO.updateBatch(adStateArray.toArray)
+
+        }
+    }
+
+    key2StateDStream
+  }
+
+  def provinceTop3Adver(sparkSession: SparkSession,
+                        key2ProvinceCityCountDStream: DStream[(String, Long)]) = {
+    //key2ProvinceCityCountDStream:RDD(key,count)
+    //key:date_province_city_adid
+
+    val key2ProvinceCountDStream = key2ProvinceCityCountDStream.map {
+      case (key, count) =>
+        val keySplit = key.split("_")
+        val date = keySplit(0)
+        val province = keySplit(1)
+        val adid = keySplit(3)
+
+        val newKey = date + "_" + province + "_" + adid
+
+        (newKey, count)
+    }
+    val key2ProvinceAggrCountDStream = key2ProvinceCountDStream.reduceByKey(_ + _)
+
+    val top3DStream = key2ProvinceAggrCountDStream.transform {
+      rdd => //rdd:RDD[(key,count)]
+        val basidDateRDD = rdd.map {
+          case (key, count) =>
+            val keySplit = key.split("_")
+            val date = keySplit(0)
+            val province = keySplit(1)
+            val adid = keySplit(2).toLong
+            (date, province, adid, count)
+        }
+        import sparkSession.implicits._
+        basidDateRDD.toDF("date", "province", "adid", "count").createOrReplaceTempView("tmp_basic_info")
+
+        val sql = "select date,province,adid,count from(" +
+          "select date,province,adid,count, " +
+          "row_number() over(partition by date,province order by count) rank from tmp_basic_info)t " +
+          "where rank <= 3"
+
+        sparkSession.sql(sql).rdd
+
+    }
+
+    top3DStream.foreachRDD {
+      rdd =>
+        rdd.foreachPartition {
+          items =>
+            val top3Array = new ArrayBuffer[AdProvinceTop3]()
+            for (item <- items) {
+              val date = item.getAs[String]("date")
+              val province = item.getAs[String]("province")
+              val adid = item.getAs[Long]("adid")
+              val count = item.getAs[Long]("count")
+
+              top3Array += AdProvinceTop3(date, province, adid, count)
+            }
+
+            AdProvinceTop3DAO.updateBatch(top3Array.toArray)
+        }
+    }
+
+  }
+
+  def getRecentHourClickCount(adRealTimeFilterDStream: DStream[String]) = {
+    val key2TimeMinuteDStream = adRealTimeFilterDStream.map {
+      case log =>
+        val logSplit = log.split(" ")
+        val timeStamp = logSplit(0).toLong
+        val timeMinute = DateUtils.formatTimeMinute(new Date(timeStamp))
+
+        val adid = logSplit(4).toLong
+        val key = timeMinute + "_" + adid
+
+        (key, 1L)
+    }
+
+    val key2WindowDStream = key2TimeMinuteDStream.reduceByKeyAndWindow((a: Long, b: Long) => a + b, Minutes(60), Minutes
+    (1))
+
+    key2TimeMinuteDStream.foreachRDD {
+      rdd =>
+        rdd.foreachPartition {
+          items =>
+            val trendArray = new ArrayBuffer[AdClickTrend]()
+            for ((key, count) <- items) {
+              val keySplit = key.split("_")
+              val timeMinute = keySplit(0)
+              val date = timeMinute.substring(0, 8)
+              val hour = timeMinute.substring(8, 10)
+              val minute = timeMinute.substring(10)
+              val adid = keySplit(1).toLong
+
+              trendArray += AdClickTrend(date, hour, minute, adid, count)
+            }
+
+            AdClickTrendDAO.updateBatch(trendArray.toArray)
+        }
+    }
   }
 
   def main(args: Array[String]): Unit = {
 
     val sparkConf = new SparkConf().setAppName("adver0407").setMaster("local[4]")
-    //    val sparkSession = SparkSession.builder().config(sparkConf).enableHiveSupport().getOrCreate()
-
+    val sparkSession = SparkSession.builder().config(sparkConf).getOrCreate()
+    val sparkContext = sparkSession.sparkContext
 
     //StreamingContext.getActiveOrCreate()
-    val streamingContext = new StreamingContext(sparkConf, Duration(2000))
+    val streamingContext = new StreamingContext(sparkContext, Duration(2000))
 
     //    // kafka消费者配置
     //    val kafkaParam = Map(
@@ -185,6 +326,14 @@ object AdverStat {
     generateBlackList(adRealTimeFilterDStream)
     //需求二  各省各市一天中广告点击量
     provinceCityClickStat(adRealTimeFilterDStream)
+
+    //需求三  统计各省热门广告
+    val key2ProvinceCityCountDStream = provinceCityClickStat(adRealTimeFilterDStream)
+    provinceTop3Adver(sparkSession, key2ProvinceCityCountDStream)
+
+    //需求四  最近一小时广告点击量
+    getRecentHourClickCount(adRealTimeFilterDStream)
+
 
     streamingContext.start()
     streamingContext.awaitTermination()
