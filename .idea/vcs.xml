@@ -6,6 +6,7 @@
     <mapping directory="$PROJECT_DIR$/Session" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/adverstat" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/commons" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/flink" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/mock" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/pageStat" vcs="svn" />
   </component>

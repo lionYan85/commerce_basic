@@ -9,6 +9,7 @@
         <module name="adverstat" />
         <module name="AreaStat" />
         <module name="commons" />
+        <module name="flink" />
         <module name="mock" />
         <module name="pageStat" />
         <module name="Session" />
@@ -19,6 +20,7 @@
       <module name="AreaStat" target="1.8" />
       <module name="commerce" target="1.8" />
       <module name="commons" target="1.8" />
+      <module name="flink" target="1.8" />
       <module name="mock" target="1.8" />
       <module name="pageStat" target="1.8" />
       <module name="Session" target="1.8" />
