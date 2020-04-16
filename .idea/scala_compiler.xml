@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="Maven 1" modules="pageStat,AreaStat,commons,adverstat,Session,mock,flink" />
+    <profile name="Maven 1" modules="pageStat,flink,AreaStat,commons,adverstat,Session,mock" />
   </component>
 </project>
